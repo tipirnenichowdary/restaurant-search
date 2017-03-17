@@ -20,20 +20,22 @@
 </md-input-container>
                 </div>
                 <div>
-         <md-input-container>
+<!--          <md-input-container>
         <label>Zip Code</label>
         <input type="Number" ng-model="zip">
         <h1>{{zip}}</h1>
-        </md-input-container>
+        </md-input-container> -->
         </div>
         <div>
          <md-input-container>
         <input type="button" value="search" ng-click="search()">
-        <h1>{{list.restaurant.name}}</h1>
-        <h1>{{list.restaurant.place}}</h1>
-        <h1>{{list.restaurant.phone}}</h1>
         </md-input-container>
         </div>
+        </div>
+        <div ng-repeat="result in results">
+        <h1>{{result.name}}</h1>
+        <h1>{{result.location_suggestions.country_name}}</h1>
+        <h1>{{result.location_suggestions.state_name}}</h1>
         </div>
       </div>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
