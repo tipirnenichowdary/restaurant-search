@@ -1,0 +1,51 @@
+<html>
+    <title>Restaurants</title>
+    <head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    </head>
+    <body ng-app="restaurantApp">
+        <div ng-controller="restController">
+            <md-toolbar class="md-hue-2">
+            <h1>Restaurants</h1>
+            </md-toolbar>
+
+            <div layout="column">
+                <div>
+<md-input-container>
+        <label>Restaurant Name</label>
+        <input type="text" ng-model="name">
+        <h1>{{name}}</h1>
+</md-input-container>
+                </div>
+                <div>
+         <md-input-container>
+        <label>Zip Code</label>
+        <input type="Number" ng-model="zip">
+        <h1>{{zip}}</h1>
+        </md-input-container>
+        </div>
+        <div>
+         <md-input-container>
+        <input type="button" value="search" ng-click="search()">
+        <h1>{{list.restaurant.name}}</h1>
+        <h1>{{list.restaurant.place}}</h1>
+        <h1>{{list.restaurant.phone}}</h1>
+        </md-input-container>
+        </div>
+        </div>
+      </div>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+  <!-- Angular Material Library -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    <script src="app.js"></script>
+    </body>
+    <style>
+        body{background-image: url("restaurant.jpg") ;}
+       h1{text-align: center}
+    </style>
+</html>
