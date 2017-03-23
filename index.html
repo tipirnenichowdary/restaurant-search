@@ -32,8 +32,12 @@
         </md-input-container>
         </div>
         </div>
-        <div ng-repeat="result in results.restaurants">
-        <h1>{{result.restaurant.name}}</h1>
+        <div ng-repeat="result in results.location_suggestions">
+        <input type="button" value="{{result.name}}"  ng-click="FindHotels(result.id)">
+        </div>
+        {{hotlist}}
+        <div ng-repeat="result in hotList.location_suggestions">
+        <h1>{{}}</h1>
         </div>
         <div ng-if="value" ng-model="value">
         <i><h1>NO DATA AVAILABLE</h1></i>
