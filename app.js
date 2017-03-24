@@ -2,9 +2,8 @@ var app  = angular.module("restaurantApp", ['ngMaterial'])
 app.run(['$rootScope', function($rootScope){
     $rootScope.cityIds = {};
 }]);
-app.controller("restController",['$rootScope','$scope', '$http', 'cityFactory','hotelsList', function($rootScope, $scope, $http, cityFactory, hotelsList){
+app.controller("restController",['$rootScope','$scope', '$http', 'cityFactory', function($rootScope, $scope, $http, cityFactory){
 
-$rootScope.a = hotelsList.getdata(6);
 $scope.value = false;
 $scope.search = function(){
 $http.defaults.headers.common["user-key"] = "4b0d3ef99f469fe811b8d83f950242f6";
@@ -28,11 +27,15 @@ var idList = cityFactory.getCityId($scope.name)
         }
         console.log(cityIdList)
     });
-$scope.FindHotels = function(id)
-{ 
-$scope.hotList = hotelsList.getdata(id);
-    
+
+
 }
+
+$scope.FindHotels = function(id){ 
+    var url = "https://developers.zomato.com/api/v2.1/search?entity_id="+id+"&entity_type=city";
+        $http.get(url).then(function(response) {
+            $scope.hotList = response.data;
+        }); 
 }
 }])
 
@@ -47,15 +50,3 @@ app.factory("cityFactory",['$http',function($http){
    return cityIds;
 }]);
 
-app.service("hotelsList",['$http',function($http){
-    var i;
-  this.getdata = function(id){ 
-        var url = "https://developers.zomato.com/api/v2.1/search?entity_id="+id+"&entity_type=city";
-        $http.get(url).then(function(response) {
-        console.log("hi");
-        var i = response;
-       
-        }); 
-    return i; 
-  }
-}]);
