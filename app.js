@@ -39,14 +39,10 @@ $scope.FindHotels = function(id){
 }
 }])
 
-app.factory("cityFactory",['$http',function($http){
-            
-    var cityIds = {
-       getCityId : function(name){return $http.get("https://developers.zomato.com/api/v2.1/cities?q="+name)
-    
-     
-}
-   };
-   return cityIds;
+app.service("cityFactory",['$http',function($http){
+         
+   this.getCityId =function(name){
+       return $http.get("https://developers.zomato.com/api/v2.1/cities?q="+name)
+    } 
 }]);
 
